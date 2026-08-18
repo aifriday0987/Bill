@@ -151,6 +151,7 @@ button.act:active{transform:translateY(1px)}
    BILL BOOK INVOICE — laid out off-screen, captured as an image
    ========================================================= */
 #invoice{
+  --bs:1.35;
   position:fixed;left:-20000px;top:0;width:794px;padding:22px;
   background:#fff;color:#000;
   font-family:"Noto Sans Gujarati","Karla",system-ui,sans-serif;
@@ -159,63 +160,63 @@ button.act:active{transform:translateY(1px)}
 .gb-in{border:1px solid var(--bred);padding:14px 18px 16px}
 
 .gb-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
-  color:var(--bred);font-size:13px;line-height:1.5}
+  color:var(--bred);font-size:calc(var(--bs) * 13px);line-height:1.5}
 .gb-top .nm{font-weight:700}
 .gb-top .c{text-align:center;font-weight:700;flex:1}
 .gb-top .r{text-align:right}
 
 .gb-brand{
   font-family:"Baloo Bhai 2","Noto Sans Gujarati",sans-serif;
-  font-weight:800;font-size:56px;line-height:1.15;text-align:center;color:var(--bred);
+  font-weight:800;font-size:calc((1 + (var(--bs) - 1) * 0.4) * 56px);line-height:1.15;text-align:center;color:var(--bred);
   margin:6px 0 0;
 }
-.gb-tag{text-align:center;color:var(--bred);font-weight:700;font-size:14px;padding:4px 0 10px}
+.gb-tag{text-align:center;color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 14px);padding:4px 0 10px}
 .gb-addr{
-  text-align:center;color:var(--bred);font-weight:700;font-size:14px;
+  text-align:center;color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 14px);
   border-top:1.5px solid var(--bred);border-bottom:1.5px solid var(--bred);
   padding:7px 10px;margin:0 -18px;
 }
 
 .gb-meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  color:var(--bred);font-weight:700;font-size:16px;padding:12px 2px 8px}
-.gb-meta .pen{color:var(--bpen);font-size:24px;font-weight:700;letter-spacing:.02em}
-.gb-meta .dt .pen{font-size:20px}
+  color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 16px);padding:12px 2px 8px}
+.gb-meta .pen{color:var(--bpen);font-size:calc(var(--bs) * 24px);font-weight:700;letter-spacing:.02em}
+.gb-meta .dt .pen{font-size:calc(var(--bs) * 20px)}
 
-.gb-cust{display:flex;align-items:flex-end;gap:8px;color:var(--bred);font-weight:700;font-size:16px;
+.gb-cust{display:flex;align-items:flex-end;gap:8px;color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 16px);
   margin:0 0 8px}
 .gb-cust .ln{flex:1;border-bottom:1.5px solid var(--bred);padding:0 8px 4px;
-  color:var(--bpen);font-size:19px;font-weight:600;min-height:26px}
-.gb-mob{color:var(--bred);font-weight:700;font-size:15px;padding:0 0 4px 2px}
-.gb-mob .pen{color:var(--bpen);font-size:18px;font-weight:600;letter-spacing:.02em}
+  color:var(--bpen);font-size:calc(var(--bs) * 19px);font-weight:600;min-height:calc(var(--bs) * 26px)}
+.gb-mob{color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 15px);padding:0 0 4px 2px}
+.gb-mob .pen{color:var(--bpen);font-size:calc(var(--bs) * 18px);font-weight:600;letter-spacing:.02em}
 .gb-top .mob{letter-spacing:.01em;white-space:nowrap}
 
 .gb-tab{width:100%;border-collapse:collapse;table-layout:fixed}
 .gb-tab th,.gb-tab td{border:1px solid var(--bred);padding:2px 9px}
-.gb-tab th{color:var(--bred);font-weight:700;font-size:16px;text-align:center;height:40px}
-.gb-tab td{height:36px;color:var(--bpen);font-size:16px;vertical-align:middle}
+.gb-tab th{color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 16px);text-align:center;height:calc(var(--bs) * 40px)}
+.gb-tab td{height:calc(var(--bs) * 36px);color:var(--bpen);font-size:calc(var(--bs) * 16px);vertical-align:middle}
 .gb-tab td.d{font-weight:600}
-.gb-tab td.d small{display:block;color:#4A5578;font-size:11.5px;font-weight:400}
+.gb-tab td.d small{display:block;color:#4A5578;font-size:calc(var(--bs) * 11.5px);font-weight:400}
 .gb-tab td.n,.gb-tab td.rt{text-align:center;font-variant-numeric:tabular-nums}
 .gb-tab td.a{text-align:right;font-variant-numeric:tabular-nums}
-.gb-tab tr.blank td{height:36px}
-.gb-tab td.lbl{text-align:center;color:var(--bred);font-weight:700;font-size:15px;line-height:1.2;padding:2px 4px}
-.gb-tab td.val{text-align:right;font-weight:700;font-size:19px}
-.gb-tab tr.grand td{height:44px}
-.gb-tab tr.grand td.val{font-size:24px}
+.gb-tab tr.blank td{height:calc(var(--bs) * 36px)}
+.gb-tab td.lbl{text-align:center;color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 15px);line-height:1.2;padding:2px 4px}
+.gb-tab td.val{text-align:right;font-weight:700;font-size:calc(var(--bs) * 19px)}
+.gb-tab tr.grand td{height:calc(var(--bs) * 44px)}
+.gb-tab tr.grand td.val{font-size:calc(var(--bs) * 24px)}
 
 .gb-close{border:1px solid var(--bred);border-top:0;display:flex;justify-content:space-between;
-  align-items:flex-end;gap:20px;padding:12px 12px 10px;min-height:78px}
-.gb-words{color:var(--bred);font-weight:700;font-size:15px}
-.gb-words .pen{color:var(--bpen);font-size:24px;letter-spacing:.03em}
-.gb-pay{font-size:14px;font-weight:700;color:var(--bred);padding-top:7px}
-.gb-pay span{color:var(--bpen);font-size:16px}
-.gb-qr{text-align:center;color:var(--bred);font-size:11.5px;font-weight:700;line-height:1.35;flex:none}
+  align-items:flex-end;gap:20px;padding:12px 12px 10px;min-height:calc(var(--bs) * 78px)}
+.gb-words{color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 15px)}
+.gb-words .pen{color:var(--bpen);font-size:calc(var(--bs) * 24px);letter-spacing:.03em}
+.gb-pay{font-size:calc(var(--bs) * 14px);font-weight:700;color:var(--bred);padding-top:7px}
+.gb-pay span{color:var(--bpen);font-size:calc(var(--bs) * 16px)}
+.gb-qr{text-align:center;color:var(--bred);font-size:calc(var(--bs) * 11.5px);font-weight:700;line-height:1.35;flex:none}
 .gb-qr svg{display:block;margin:0 auto 3px;border:1px solid var(--bred)}
-.gb-qr small{display:block;font-size:10px;font-weight:400;max-width:140px;margin:0 auto;word-break:break-all}
-.gb-qr .miss{color:var(--bred);font-weight:600;font-size:11px;max-width:130px}
-.gb-sign{text-align:center;color:var(--bred);font-weight:700;font-size:14px;min-width:150px}
-.gb-sign i{display:block;border-bottom:1.2px solid var(--bred);height:34px}
-.gb-terms{color:var(--bred);font-size:11.5px;text-align:center;padding:8px 4px 0;opacity:.85}
+.gb-qr small{display:block;font-size:calc(var(--bs) * 10px);font-weight:400;max-width:140px;margin:0 auto;word-break:break-all}
+.gb-qr .miss{color:var(--bred);font-weight:600;font-size:calc(var(--bs) * 11px);max-width:130px}
+.gb-sign{text-align:center;color:var(--bred);font-weight:700;font-size:calc(var(--bs) * 14px);min-width:150px}
+.gb-sign i{display:block;border-bottom:1.2px solid var(--bred);height:calc(var(--bs) * 34px)}
+.gb-terms{color:var(--bred);font-size:calc(var(--bs) * 11.5px);text-align:center;padding:8px 4px 0;opacity:.85}
 
 /* ---------- on-screen preview of the bill ---------- */
 .pv{position:fixed;inset:0;background:rgba(12,18,34,.78);z-index:70;display:none;overflow:auto}
@@ -226,8 +227,11 @@ button.act:active{transform:translateY(1px)}
   padding:9px 14px;border:1px solid rgba(255,255,255,.35);background:none;color:#fff;border-radius:2px;cursor:pointer}
 .pv-bar button.pri{background:var(--turmeric);border-color:var(--turmeric)}
 .pv-stage{padding:14px;display:flex;justify-content:center}
+.sh-msg{color:#fff;max-width:520px;margin:0 auto 12px;font-size:14.5px;line-height:1.5;text-align:center}
+.sh-msg b{color:#F3D07A}
+#shImg{display:block;width:min(430px,92vw);max-width:100%;margin:0 auto;background:#fff;border-radius:3px}
 .pv-fit{width:794px;flex:none;transform-origin:top center}
-.pv-fit #pvDoc{width:794px;background:#fff;padding:22px;
+.pv-fit #pvDoc{--bs:1.35;width:794px;background:#fff;padding:22px;
   font-family:"Noto Sans Gujarati","Karla",system-ui,sans-serif;color:#000}
 
 @media print{
@@ -375,7 +379,8 @@ button.act:active{transform:translateY(1px)}
     <div class="card">
       <h2>Put it on the phone</h2>
       <p class="note" style="margin:0 0 12px">Add this to the home screen once and it opens with one tap — no WhatsApp, no file hunting. Works best when the page is opened from a web address rather than a downloaded file.</p>
-      <div class="row-actions"><button class="act" id="installBtn">Add to home screen</button></div>
+      <div class="row-actions"><button class="act" id="installBtn">Add to home screen</button>
+        <button class="act ghost" id="waCheck">Check WhatsApp sending</button></div>
       <p class="note" id="installHint">On Android: Chrome menu (⋮) → <b>Add to Home screen</b>. On iPhone: Safari share button → <b>Add to Home Screen</b>.</p>
     </div>
 
@@ -401,6 +406,18 @@ button.act:active{transform:translateY(1px)}
     <button id="pvClose">Close</button>
   </div>
   <div class="pv-stage"><div class="pv-fit" id="pvFit"><div id="pvDoc"></div></div></div>
+</div>
+
+<div class="pv" id="sh" role="dialog" aria-label="Send this bill">
+  <div class="pv-bar">
+    <button class="pri" id="shSave">Save image</button>
+    <button class="wa" id="shChat">Open WhatsApp chat</button>
+    <button id="shClose">Close</button>
+  </div>
+  <div class="pv-stage" style="flex-direction:column">
+    <p class="sh-msg" id="shMsg"></p>
+    <img id="shImg" alt="Bill">
+  </div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -940,6 +957,41 @@ async function copyImage(blob){
   }catch(err){ return false; }
 }
 
+function shareFilesOK(blob, b){
+  try{
+    if(!blob || !navigator.canShare) return false;
+    return navigator.canShare({ files:[ new File([blob], billFileName(b), {type:'image/png'}) ] });
+  }catch(e){ return false; }
+}
+
+/* why the picture cannot travel, in plain words */
+function whyNoShare(){
+  if(!window.isSecureContext)
+    return 'This page is open as a <b>file</b>, and browsers block image sharing on files. Open the app from its <b>https web address</b> and the bill will attach by itself.';
+  if(window.self !== window.top)
+    return 'The app is running inside another page, which blocks image sharing. Open the web address in its <b>own browser tab</b>.';
+  return 'This browser cannot attach the image on its own.';
+}
+
+let shBlob = null, shBill = null;
+function openShareBox(blob, canvas, b, note){
+  shBlob = blob; shBill = b;
+  const img = $('shImg');
+  img.src = blob ? URL.createObjectURL(blob) : canvas.toDataURL('image/png');
+  $('shMsg').innerHTML = note + '<br><br>For now: <b>press and hold the bill below</b>, choose Share, then WhatsApp — or save it and attach it in the chat.';
+  $('sh').classList.add('show');
+}
+$('shClose').addEventListener('click',()=>$('sh').classList.remove('show'));
+$('shSave').addEventListener('click',()=>{
+  if(!shBlob) return;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(shBlob); a.download=billFileName(shBill); a.rel='noopener';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  toast('Saved — attach it in WhatsApp');
+});
+$('shChat').addEventListener('click',()=>{ if(shBill) openWhatsApp(shBill, billMessage(shBill)); });
+
 async function shareWhatsApp(b){
   if(!b.items.length){ toast('Add at least one item'); return; }
   if(!window.html2canvas){ toast('Image library did not load'); return; }
@@ -950,39 +1002,36 @@ async function shareWhatsApp(b){
   try{
     canvas = await renderCanvas(b);
     blob = await canvasBlob(canvas);
-  }catch(err){ console.error(err); }
+  }catch(err){ console.error(err); toast('Could not build the bill image'); return; }
 
-  /* 1. share sheet — the only route that carries the picture itself */
-  if(blob && navigator.canShare && D.shop.waDirect !== true){
+  /* 1. the picture itself, straight into WhatsApp */
+  if(shareFilesOK(blob, b) && D.shop.waDirect !== true){
     try{
-      const file = new File([blob], billFileName(b), {type:'image/png'});
-      if(navigator.canShare({files:[file]})){
-        await navigator.share({files:[file], text:msg, title:'Bill '+b.no});
-        toast('Pick WhatsApp, then the customer — bill is attached', 4000);
-        return;
-      }
+      await navigator.share({ files:[ new File([blob], billFileName(b), {type:'image/png'}) ], text:msg });
+      copyText(msg);
+      toast('Sent to WhatsApp — pick the customer', 4000);
+      return;
     }catch(err){
-      if(err && err.name === 'AbortError') return;   /* sheet closed on purpose */
+      if(err && err.name === 'AbortError') return;      /* closed on purpose */
       console.error(err);
     }
   }
 
-  /* 2. no share sheet (desktop / WhatsApp Web) — bill on the clipboard, chat open */
-  const copied = await copyImage(blob);
-  if(!copied && canvas) saveBlob(blob, canvas, billFileName(b));
-  openWhatsApp(b, msg);
-  toast(copied ? 'Chat opened — press Ctrl+V to paste the bill, then send'
-               : 'Bill image saved — drag it into the chat that just opened', 6000);
+  /* 2. computer with WhatsApp Web — bill on the clipboard, chat open */
+  if(!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){
+    const copied = await copyImage(blob);
+    if(copied){
+      openWhatsApp(b, msg);
+      toast('Chat opened — press Ctrl+V to paste the bill, then send', 6000);
+      return;
+    }
+  }
+
+  /* 3. anything else — show the bill so it can be shared by hand, and say why */
+  openShareBox(blob, canvas, b, whyNoShare());
 }
 
-$('imgBill').addEventListener('click',()=>saveImage(collect()));
-$('waBill').addEventListener('click',()=>shareWhatsApp(collect()));
-$('printBill').addEventListener('click',()=>{
-  const b = collect();
-  if(!b.items.length){ toast('Add at least one item'); return; }
-  buildInvoice(b);
-  try{ window.print(); }catch(e){ toast('Printing blocked here — use Save as image'); }
-});
+function copyText(t){ try{ navigator.clipboard && navigator.clipboard.writeText(t); }catch(e){} }
 
 /* ---------------- home-screen app ---------------- */
 (function(){
@@ -1019,6 +1068,15 @@ $('installBtn').addEventListener('click', async ()=>{
     return;
   }
   toast('Use the browser menu: Add to Home screen', 5000);
+});
+
+$('waCheck').addEventListener('click', async ()=>{
+  const blob = new Blob([new Uint8Array([137,80,78,71])], {type:'image/png'});
+  let ok = false;
+  try{ ok = navigator.canShare && navigator.canShare({files:[new File([blob],'t.png',{type:'image/png'})]}); }catch(e){}
+  if(ok){ toast('Good — the bill image will attach itself in WhatsApp', 5000); return; }
+  toast(window.isSecureContext ? 'This browser will not attach images — you will paste or hold the bill to share it'
+                               : 'Opened as a file — publish it and open the https address for image sending', 7000);
 });
 
 /* ---------------- backup ---------------- */
