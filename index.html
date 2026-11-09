@@ -777,8 +777,8 @@ function qrSVG(text, px){
          '<rect width="'+size+'" height="'+size+'" fill="#ffffff"/><path d="'+d+'" fill="#000000"/></svg>';
 }
 
-function payBlock(b){
-  if(b.pay !== 'qr') return '';
+function payBlock(b, noQR){
+  if(b.pay !== 'qr' || noQR) return '';
   const uri = upiURI(b);
   if(!uri) return '<div class="gb-qr"><div class="miss">UPI ID ઉમેરો — Shop tab</div></div>';
   const svg = qrSVG(uri, 110);
@@ -786,7 +786,7 @@ function payBlock(b){
   return '<div class="gb-qr">'+svg+'સ્કેન કરો</div>';
 }
 
-function buildInvoice(b){
+function buildInvoice(b, noQR){
   const S = D.shop;
 
   const head =
@@ -844,7 +844,7 @@ function buildInvoice(b){
       '<div class="gb-words">રકમ અંકે <span class="pen">'+amt(b.adv?b.bal:b.tot)+' /-</span>'+
         '<div class="gb-pay">ચુકવણી : <span>'+(PAY_LABEL[b.pay]||PAY_LABEL.cash)+'</span></div>'+
       '</div>'+
-      payBlock(b)+
+      payBlock(b, noQR)+
       '<div class="gb-sign"><i></i>સહી</div>'+
     '</div>'+
     (S.terms ? '<div class="gb-terms">'+esc(S.terms)+'</div>' : '');
@@ -887,8 +887,8 @@ function billFileName(b){
   return 'Bill-'+b.no+(who?'-'+who:'')+'.png';
 }
 
-async function renderCanvas(b){
-  buildInvoice(b);
+async function renderCanvas(b, noQR){
+  buildInvoice(b, noQR);
   if(document.fonts && document.fonts.ready) await document.fonts.ready;
   return html2canvas($('invoice'), {scale:2.5, backgroundColor:'#ffffff', useCORS:true, windowWidth:794});
 }
@@ -1000,7 +1000,7 @@ async function shareWhatsApp(b){
   let blob = null, canvas = null;
 
   try{
-    canvas = await renderCanvas(b);
+    canvas = await renderCanvas(b, true);   /* WhatsApp turns a UPI QR in a picture into a Pay button, hiding the bill */
     blob = await canvasBlob(canvas);
   }catch(err){ console.error(err); toast('Could not build the bill image'); return; }
 
